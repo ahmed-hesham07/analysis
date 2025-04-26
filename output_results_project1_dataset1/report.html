@@ -8,65 +8,265 @@
             
         <style>
             body {
-                font-family: Arial, sans-serif;
+                font-family: 'Segoe UI', Arial, sans-serif;
                 line-height: 1.6;
-                margin: 20px;
-                background-color: #f9f9f9;
-                color: #333;
+                margin: 0;
+                background-color: #f5f7fa;
+                color: #2d3748;
             }
-            h1, h2, h3 {
-                color: #2c3e50;
+            .container {
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 2rem;
             }
-            h1 {
-                text-align: center;
-                margin-bottom: 30px;
-                font-size: 28px;
+            .header {
+                background: linear-gradient(135deg, #2c5282, #2b6cb0);
+                color: white;
+                padding: 2rem;
+                border-radius: 8px;
+                margin-bottom: 2rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
-            table {
+            .header h1 {
+                margin: 0;
+                font-size: 2.5rem;
+            }
+            .header p {
+                margin-top: 0.5rem;
+                opacity: 0.9;
+            }
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+            .card {
+                background: white;
+                border-radius: 8px;
+                padding: 1.5rem;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+                transition: transform 0.2s ease;
+            }
+            .card:hover {
+                transform: translateY(-2px);
+            }
+            .visualization-container {
+                background: white;
+                border-radius: 8px;
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            }
+            .stats-table {
                 width: 100%;
-                border-collapse: collapse;
-                margin-top: 10px;
+                border-collapse: separate;
+                border-spacing: 0;
+                margin: 1rem 0;
+                background: white;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             }
-            table th, table td {
-                border: 1px solid #ddd;
-                padding: 8px;
+            .stats-table th {
+                background: #edf2f7;
+                padding: 1rem;
+                font-weight: 600;
                 text-align: left;
             }
-            table th {
-                background-color: #f2f2f2;
+            .stats-table td {
+                padding: 1rem;
+                border-top: 1px solid #e2e8f0;
             }
-            ul {
-                list-style-type: disc;
-                margin-left: 20px;
+            .stats-table tr:hover {
+                background: #f7fafc;
             }
             img {
                 max-width: 100%;
-                height: auto;
-                margin-top: 20px;
-                border: 1px solid #ddd;
-                border-radius: 4px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            }
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-                background: #fff;
-                padding: 20px;
                 border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                margin: 1rem 0;
+            }
+            .insights-list {
+                list-style: none;
+                padding: 0;
+            }
+            .insights-list li {
+                background: #ebf8ff;
+                margin: 0.5rem 0;
+                padding: 1rem;
+                border-radius: 4px;
+                border-left: 4px solid #4299e1;
+            }
+            .recommendations-list {
+                list-style: none;
+                padding: 0;
+            }
+            .recommendations-list li {
+                background: #f0fff4;
+                margin: 0.5rem 0;
+                padding: 1rem;
+                border-radius: 4px;
+                border-left: 4px solid #48bb78;
+            }
+            .interactive-section {
+                margin-top: 2rem;
+            }
+            .tabs {
+                display: flex;
+                margin-bottom: 1rem;
+            }
+            .tab {
+                padding: 0.5rem 1rem;
+                background: #e2e8f0;
+                border: none;
+                border-radius: 4px;
+                margin-right: 0.5rem;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+            }
+            .tab:hover {
+                background: #cbd5e0;
+            }
+            .tab.active {
+                background: #4299e1;
+                color: white;
             }
             .footer {
                 text-align: center;
-                margin-top: 40px;
-                font-size: 14px;
-                color: #777;
+                padding: 2rem;
+                margin-top: 3rem;
+                border-top: 1px solid #e2e8f0;
+                color: #718096;
             }
-        </style>
+            .executive-dashboard {
+                background: white;
+                border-radius: 12px;
+                padding: 2rem;
+                margin-bottom: 2rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            }
+            .kpi-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+                margin-top: 1.5rem;
+            }
+            .kpi-card {
+                background: linear-gradient(135deg, #f6f9fc, #ffffff);
+                border-radius: 8px;
+                padding: 1.5rem;
+                text-align: center;
+                border: 1px solid #e2e8f0;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            .kpi-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            }
+            .kpi-card h3 {
+                color: #4a5568;
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+            .kpi-value {
+                font-size: 2rem;
+                font-weight: bold;
+                color: #2d3748;
+            }
+            .kpi-value.positive {
+                color: #48bb78;
+            }
+            .kpi-value.negative {
+                color: #e53e3e;
+            }
+            .total-cost .kpi-value {
+                color: #4299e1;
+            }
+            .avg-cost .kpi-value {
+                color: #805ad5;
+            }
+            .trend .kpi-value {
+                font-size: 1.75rem;
+            }
+            .chart-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                gap: 2rem;
+                margin-top: 2rem;
+            }
+            .chart-card {
+                background: white;
+                border-radius: 8px;
+                padding: 1.5rem;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            }
+            .interactive-viz {
+                height: 500px;
+                border: none;
+                width: 100%;
+                border-radius: 8px;
+            }
+            @media (max-width: 768px) {
+                .container {
+                    padding: 1rem;
+                }
+                .grid-container {
+                    grid-template-columns: 1fr;
+                }
+            }
+            </style>
+            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Add interactivity for tabs
+                const tabs = document.querySelectorAll('.tab');
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        tabs.forEach(t => t.classList.remove('active'));
+                        tab.classList.add('active');
+                        // Add your tab switching logic here
+                    });
+                });
+                
+                // Add smooth scrolling
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+            });
+            </script>
         
         </head>
         <body>
             <div class="container">
-                <h1>Maintenance Analysis Report</h1>
+                <div class="header">
+                    <h1>Maintenance Analysis Report</h1>
+                    <p>Generated insights and recommendations for maintenance data.</p>
+                </div>
+
+                <h2>Executive Summary</h2>
+                
+                <div class="executive-dashboard">
+                    <h2>Executive Dashboard</h2>
+                    <div class="kpi-grid">
+                        <div class="kpi-card total-cost">
+                            <h3>Total Cost</h3>
+                            <div class="kpi-value">$2,615,129.08</div>
+                        </div>
+                        <div class="kpi-card avg-cost">
+                            <h3>Average Cost</h3>
+                            <div class="kpi-value">$5,230.26</div>
+                        </div>
+                        <div class="kpi-card trend">
+                            <h3>Cost Trend</h3>
+                            <div class="kpi-value positive">66.2% ↑</div>
+                        </div>
+                    </div>
+                </div>
+                
 
                 <h2>Data Overview</h2>
                 
@@ -126,24 +326,59 @@
         
 
                 <h2>Insights</h2>
-                <ul><li>The following table shows the total number of jobs that were completed in the last year.</li></ul>
+                <ul class="insights-list"><li>The following table shows the total number of jobs that were completed in the last year.</li></ul>
 
                 <h2>Recommendations</h2>
-                <ul><li>Predicted Maintenance cost with R2 score: -0.00</li><li>Clustered equipment for optimized scheduling.</li></ul>
+                <ul class="recommendations-list"><li>Detected 50 potential anomalies in maintenance records.</li><li>Predicted Maintenance cost with R2 score: 0.00</li><li>Clustered equipment for optimized scheduling.</li></ul>
+
+                <h2>Advanced Statistical Analysis</h2>
+                
+            <div class="stats-section">
+                <h2>Advanced Statistical Analysis</h2>
+                <table class="stats-table">
+                    <tr>
+                        <th>Metric</th>
+                        <th>Duration</th><th>Maintenance cost</th>
+                    </tr>
+                    <tr>
+                            <td>Skewness</td>
+                            <td>0.04</td><td>0.04</td>
+                        </tr><tr>
+                            <td>Kurtosis</td>
+                            <td>-1.27</td><td>-1.16</td>
+                        </tr><tr>
+                            <td>Variance</td>
+                            <td>8.38</td><td>7419058.25</td>
+                        </tr>
+                </table>
+            </div>
+            
 
                 <h2>Visualizations</h2>
                 
-                    <img src='numerical_distributions.png' alt='Numerical Distributions'>
+                    <div class="visualization-container">
+                        <img src='numerical_distributions.png' alt='Numerical Distributions'>
+                    </div>
                 
                 
-                    <img src='categorical_counts.png' alt='Categorical Counts'>
+                    <div class="visualization-container">
+                        <img src='categorical_counts.png' alt='Categorical Counts'>
+                    </div>
                 
                 
-                    <img src='time_series.png' alt='Time Series Trends'>
+                    <div class="visualization-container">
+                        <img src='time_series.png' alt='Time Series Trends'>
+                    </div>
                 
+                <div class="visualization-container">
+                    <img src='correlation_matrix.png' alt='Correlation Matrix'>
+                </div>
+                <div class="visualization-container">
+                    <img src='anomalies.png' alt='Anomaly Detection Results'>
+                </div>
             </div>
             <div class="footer">
-                Generated by Maintenance Analyzer | 2025-04-26 18:12:32
+                Generated by Maintenance Analyzer | 2025-04-26 19:21:21
             </div>
         </body>
         </html>
