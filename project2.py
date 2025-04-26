@@ -16,6 +16,8 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 import nltk
 import torch
+import pdfkit
+from jinja2 import Template
 warnings.filterwarnings('ignore')
 
 # Download required NLTK data with comprehensive error handling
@@ -45,7 +47,7 @@ class MaintenanceAnalyzer:
     def __init__(self, file_path):
         print("Loading data...")
         self.df = pd.read_csv(file_path)
-        self.output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'output_results')
+        self.output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'output_results2')
         
         # Auto-detect and map columns
         self._detect_and_map_columns()
@@ -433,8 +435,8 @@ class MaintenanceAnalyzer:
         return recommendation_map.get(label, 'Further analysis needed')
 
     def create_html_report(self):
-        """Generate HTML report with LLM analysis"""
-        print("Generating enhanced HTML report with LLM analysis...")
+        """Generate enhanced HTML and PDF report with LLM analysis"""
+        print("Generating enhanced HTML and PDF reports with LLM analysis...")
         stats = self.generate_basic_stats()
         category_analysis = self.analyze_by_category(self.standard_columns['equipment'])
         self.create_visualizations()
@@ -442,181 +444,278 @@ class MaintenanceAnalyzer:
         # Initialize LLM and get maintenance patterns
         self._setup_llm()
         maintenance_patterns = self.analyze_maintenance_patterns()
+        business_recommendations = self.generate_business_recommendations()
         
-        # Create dynamic stats cards based on available data
-        stats_cards = []
-        for key, value in stats.items():
-            if isinstance(value, (int, float)):
-                formatted_value = f"${value:,.2f}" if 'cost' in key else f"{value:,.2f}"
-                stats_cards.append(f"""
-                    <div class="stat-card">
-                        <h3>{key.replace('_', ' ').title()}</h3>
-                        <p>{formatted_value}</p>
-                    </div>
-                """)
+        # Enhanced CSS for better PDF rendering
+        css_content = """
+            body { 
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                background-color: white;
+            }
+            .header {
+                text-align: center;
+                margin-bottom: 40px;
+                border-bottom: 2px solid #333;
+                padding-bottom: 20px;
+            }
+            .section {
+                margin: 30px 0;
+                page-break-inside: avoid;
+            }
+            .stats {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                margin-bottom: 40px;
+            }
+            .stat-card {
+                background: #f8f9fa;
+                padding: 20px;
+                border-radius: 8px;
+                border: 1px solid #dee2e6;
+                text-align: center;
+            }
+            .visualization {
+                margin: 40px 0;
+                text-align: center;
+                page-break-inside: avoid;
+            }
+            .visualization img {
+                max-width: 100%;
+                height: auto;
+                margin: 20px 0;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                font-size: 0.9em;
+            }
+            th, td {
+                padding: 12px;
+                border: 1px solid #dee2e6;
+                text-align: left;
+            }
+            th {
+                background: #f8f9fa;
+                font-weight: bold;
+            }
+            .recommendation-card {
+                margin: 15px 0;
+                padding: 20px;
+                border-radius: 8px;
+                border: 1px solid #dee2e6;
+                background: #fff;
+            }
+            .priority-High { border-left: 4px solid #dc3545; }
+            .priority-Medium { border-left: 4px solid #ffc107; }
+            .priority-Low { border-left: 4px solid #28a745; }
+            .executive-summary {
+                background: #f8f9fa;
+                padding: 20px;
+                border-radius: 8px;
+                margin: 20px 0;
+                border: 1px solid #dee2e6;
+            }
+            .chart-container {
+                page-break-inside: avoid;
+                margin: 30px 0;
+            }
+            .footer {
+                margin-top: 40px;
+                text-align: center;
+                font-size: 0.8em;
+                color: #666;
+            }
+        """
         
-        # Create HTML with dynamic sections
+        # Generate executive summary
+        exec_summary = self._generate_executive_summary(stats, business_recommendations)
+        
+        # Create HTML content with enhanced structure
         html_content = f"""
         <!DOCTYPE html>
         <html>
         <head>
             <title>Enhanced Maintenance Analysis Report</title>
-            <style>
-                body {{ font-family: Arial; margin: 40px; background-color: #f5f5f5; }}
-                .header {{ text-align: center; margin-bottom: 30px; }}
-                .stats {{ 
-                    display: grid; 
-                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                    gap: 20px;
-                    margin-bottom: 30px; 
-                }}
-                .stat-card {{ 
-                    padding: 20px; 
-                    background: white; 
-                    border-radius: 8px;
-                    text-align: center;
-                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                }}
-                .visualization {{ 
-                    margin: 30px 0; 
-                    text-align: center;
-                    background: white;
-                    padding: 20px;
-                    border-radius: 8px;
-                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                }}
-                img {{ max-width: 100%; border-radius: 4px; }}
-                table {{ 
-                    width: 100%; 
-                    border-collapse: collapse; 
-                    margin: 20px 0;
-                    background: white;
-                }}
-                th, td {{ 
-                    padding: 12px; 
-                    border: 1px solid #ddd; 
-                    text-align: left;
-                }}
-                th {{ background: #f8f9fa; }}
-                .insight-card {{
-                    background: white;
-                    padding: 15px;
-                    margin: 10px 0;
-                    border-radius: 8px;
-                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                }}
-                .confidence {{
-                    color: #666;
-                    font-size: 0.9em;
-                }}
-            </style>
+            <meta charset="UTF-8">
+            <style>{css_content}</style>
         </head>
         <body>
             <div class="header">
-                <h1>Enhanced Maintenance Analysis Report</h1>
+                <h1>Maintenance Analysis Report</h1>
                 <p>Generated on {datetime.now().strftime("%B %d, %Y")}</p>
             </div>
             
-            <div class="stats">
-                {''.join(stats_cards)}
+            <div class="section">
+                <h2>Executive Summary</h2>
+                <div class="executive-summary">
+                    {exec_summary}
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Key Statistics</h2>
+                <div class="stats">
+                    {self._generate_stat_cards(stats)}
+                </div>
             </div>
         """
         
-        # Add visualizations based on available data
+        # Add visualizations with enhanced layout
         if os.path.exists(os.path.join(self.images_dir, 'cost_analysis.png')):
-            html_content += """
-            <div class="visualization">
-                <h2>Cost Analysis</h2>
-                <img src="images/cost_analysis.png" alt="Cost Analysis">
-            </div>
-            """
-            
-        if os.path.exists(os.path.join(self.images_dir, 'category_costs.png')):
-            html_content += """
-            <div class="visualization">
-                <h2>Category Costs</h2>
-                <img src="images/category_costs.png" alt="Category Costs">
-            </div>
-            """
-            
-        if os.path.exists(os.path.join(self.images_dir, 'maintenance_types.png')):
-            html_content += """
-            <div class="visualization">
-                <h2>Maintenance Types Distribution</h2>
-                <img src="images/maintenance_types.png" alt="Maintenance Types">
-            </div>
-            """
-        
-        # Add category analysis table if available
-        if category_analysis is not None:
             html_content += f"""
-            <div class="visualization">
-                <h2>Category Analysis</h2>
-                <table>
-                    <tr>
-                        <th>Category</th>
-                        {''.join(f"<th>{col.replace('_', ' ').title()}</th>" for col in category_analysis.columns)}
-                    </tr>
-                    {''.join(f"""
-                    <tr>
-                        <td>{category}</td>
-                        {''.join(f"<td>${val:,.2f}" if 'cost' in col else f"<td>{val:,.2f}" 
-                                for col, val in row.items())}
-                    </tr>
-                    """ for category, row in category_analysis.head(10).iterrows())}
-                </table>
+            <div class="section">
+                <h2>Cost Analysis</h2>
+                <div class="chart-container">
+                    <img src="{os.path.join(self.images_dir, 'cost_analysis.png')}" alt="Cost Analysis">
+                </div>
             </div>
             """
         
-        # Add LLM analysis section
+        if os.path.exists(os.path.join(self.images_dir, 'category_costs.png')):
+            html_content += f"""
+            <div class="section">
+                <h2>Maintenance Costs by Category</h2>
+                <div class="chart-container">
+                    <img src="{os.path.join(self.images_dir, 'category_costs.png')}" alt="Category Costs">
+                </div>
+            </div>
+            """
+        
+        if category_analysis is not None:
+            html_content += self._generate_category_analysis_section(category_analysis)
+        
         if maintenance_patterns:
             html_content += self._generate_llm_analysis_html(maintenance_patterns)
         
-        # Get business recommendations
-        business_recommendations = self.generate_business_recommendations()
-        
-        # Add business recommendations section
         if business_recommendations:
-            html_content += """
-            <div class="visualization">
-                <h2>Business Recommendations</h2>
-                <style>
-                    .recommendation-card {
-                        background: white;
-                        padding: 20px;
-                        margin: 15px 0;
-                        border-radius: 8px;
-                        border-left: 4px solid;
-                    }
-                    .priority-High { border-left-color: #dc3545; }
-                    .priority-Medium { border-left-color: #ffc107; }
-                    .priority-Low { border-left-color: #28a745; }
-                </style>
-            """
-            
-            for rec in business_recommendations:
-                html_content += f"""
-                <div class="recommendation-card priority-{rec['priority']}">
-                    <h3>{rec['category']}</h3>
-                    <p><strong>Observation:</strong> {rec['observation']}</p>
-                    <p><strong>Recommendation:</strong> {rec['recommendation']}</p>
-                    <p><strong>Priority:</strong> {rec['priority']}</p>
-                </div>
-                """
-                
-            html_content += "</div>"
+            html_content += self._generate_recommendations_section(business_recommendations)
         
         html_content += """
+            <div class="footer">
+                <p>This report was automatically generated using advanced analytics and machine learning techniques.</p>
+            </div>
         </body>
         </html>
         """
         
+        # Save HTML report
         report_path = os.path.join(self.output_dir, 'maintenance_report.html')
         with open(report_path, 'w', encoding='utf-8') as f:
             f.write(html_content)
         
-        print(f"Enhanced report generated successfully! All outputs are saved in the '{self.output_dir}' folder.")
+        # Generate PDF using pdfkit
+        try:
+            pdf_path = os.path.join(self.output_dir, 'maintenance_report.pdf')
+            wkhtmltopdf_path = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
+            config = pdfkit.configuration(wkhtmltopdf=wkhtmltopdf_path)
+            
+            options = {
+                'page-size': 'Letter',
+                'margin-top': '2.5cm',
+                'margin-right': '2.5cm',
+                'margin-bottom': '2.5cm',
+                'margin-left': '2.5cm',
+                'encoding': "UTF-8",
+                'no-outline': None,
+                'enable-local-file-access': None
+            }
+            pdfkit.from_file(report_path, pdf_path, options=options, configuration=config)
+            print(f"Enhanced reports generated successfully! All outputs are saved in the '{self.output_dir}' folder.")
+        except Exception as e:
+            print(f"Warning: Could not generate PDF. Error: {str(e)}")
+            print(f"HTML report is still available at: {report_path}")
         
+    def _generate_executive_summary(self, stats, recommendations):
+        """Generate an executive summary of the analysis"""
+        summary = "<p>This report provides a comprehensive analysis of maintenance operations "
+        summary += "based on the available data. "
+        
+        if 'total_cost' in stats:
+            summary += f"Total maintenance costs amount to ${stats['total_cost']:,.2f}. "
+        
+        if 'unique_equipment' in stats:
+            summary += f"The analysis covers {stats['unique_equipment']} unique pieces of equipment. "
+        
+        if recommendations:
+            high_priority = sum(1 for r in recommendations if r['priority'] == 'High')
+            if high_priority > 0:
+                summary += f"There are {high_priority} high-priority recommendations that require immediate attention. "
+        
+        summary += "</p>"
+        return summary
+        
+    def _generate_stat_cards(self, stats):
+        """Generate HTML for statistics cards"""
+        cards_html = ""
+        for key, value in stats.items():
+            if isinstance(value, (int, float)):
+                formatted_value = f"${value:,.2f}" if 'cost' in key else f"{value:,.2f}"
+                cards_html += f"""
+                    <div class="stat-card">
+                        <h3>{key.replace('_', ' ').title()}</h3>
+                        <p>{formatted_value}</p>
+                    </div>
+                """
+        return cards_html
+        
+    def _generate_category_analysis_section(self, category_analysis):
+        """Generate HTML for category analysis section"""
+        html = """
+        <div class="section">
+            <h2>Detailed Category Analysis</h2>
+            <table>
+                <tr>
+                    <th>Category</th>
+        """
+        
+        html += ''.join(f"<th>{col.replace('_', ' ').title()}</th>" 
+                       for col in category_analysis.columns)
+        html += "</tr>"
+        
+        for category, row in category_analysis.head(10).iterrows():
+            html += f"<tr><td>{category}</td>"
+            html += ''.join(
+                f"<td>${val:,.2f}" if 'cost' in col else f"<td>{val:,.2f}</td>"
+                for col, val in row.items()
+            )
+            html += "</tr>"
+        
+        html += """
+            </table>
+        </div>
+        """
+        return html
+        
+    def _generate_recommendations_section(self, recommendations):
+        """Generate HTML for recommendations section"""
+        html = """
+        <div class="section">
+            <h2>Business Recommendations</h2>
+        """
+        
+        # Group recommendations by priority
+        priorities = ['High', 'Medium', 'Low']
+        for priority in priorities:
+            priority_recs = [r for r in recommendations if r['priority'] == priority]
+            if priority_recs:
+                html += f"<h3>{priority} Priority Recommendations</h3>"
+                for rec in priority_recs:
+                    html += f"""
+                    <div class="recommendation-card priority-{rec['priority']}">
+                        <h4>{rec['category']}</h4>
+                        <p><strong>Observation:</strong> {rec['observation']}</p>
+                        <p><strong>Recommendation:</strong> {rec['recommendation']}</p>
+                    </div>
+                    """
+        
+        html += "</div>"
+        return html
+
     def _generate_llm_analysis_html(self, patterns):
         """Generate HTML section for LLM analysis results"""
         if not patterns:
