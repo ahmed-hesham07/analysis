@@ -1,0 +1,157 @@
+Work Order ID,Technician Name,Technician ID,Parts Used,Parts Cost,Work Hours,Task Status,Completion Notes,Equipment ID,Task Id
+WO-10345,John Smith,TECH-224,O-ring,45.20,2.5,Completed,Successfully replaced sensor,EQP-1036,TASK-77888
+WO-10346,Sarah Johnson,TECH-189,Pressure gauge,78.50,1.75,Completed,No leaks detected,EQP-1090,TASK-99678
+WO-10347,Michael Brown,TECH-205,Seal kit,120.75,3.0,Completed,Full seal replacement,EQP-1080,TASK-45943
+WO-10348,Emily Davis,TECH-178,Valve assembly,95.30,2.25,In Progress,Waiting for additional parts,EQP-1075,TASK-45225
+WO-10349,David Wilson,TECH-213,Bearing set,210.45,4.5,Completed,Complete overhaul performed,EQP-1023,TASK-43237
+WO-10350,Jennifer Lee,TECH-197,Lubricant,35.80,1.5,Completed,Routine maintenance,EQP-1049,TASK-55779
+WO-10351,Robert Taylor,TECH-231,Filter set,68.90,1.0,Completed,Filter changed on schedule,EQP-1001,TASK-75825
+WO-10352,Lisa Martinez,TECH-192,Grease fitting,12.50,0.75,Completed,Additional lubrication points added,EQP-1013,TASK-47168
+WO-10353,James Anderson,TECH-207,Control valve,145.60,2.0,Completed,Valve functioning normally,EQP-1083,TASK-17044
+WO-10354,Patricia White,TECH-184,Gasket set,52.30,1.25,Scheduled,Work planned for next week,EQP-1036,TASK-77888
+WO-10355,Thomas Harris,TECH-219,Pressure sensor,89.75,2.75,Completed,Calibration performed,EQP-1090,TASK-99678
+WO-10356,Nancy Clark,TECH-176,Sealant tube,24.95,1.5,Completed,Temporary seal applied,EQP-1080,TASK-45943
+WO-10357,Daniel Lewis,TECH-202,Actuator,156.80,3.25,In Progress,Testing required,EQP-1075,TASK-45225
+WO-10358,Margaret Walker,TECH-227,Pump shaft,187.30,4.0,Completed,Overhaul completed,EQP-1023,TASK-43237
+WO-10359,Charles Hall,TECH-191,Lubricant pump,65.40,2.0,Completed,System flushed,EQP-1049,TASK-55779
+WO-10360,Susan Young,TECH-214,Filter housing,78.25,1.75,Completed,Full replacement,EQP-1001,TASK-75825
+WO-10361,Joseph Allen,TECH-183,Drive belt,42.60,1.25,Completed,Belt tension adjusted,EQP-1013,TASK-47168
+WO-10362,Christopher King,TECH-208,Valve stem,58.90,1.5,Completed,Preventive maintenance,EQP-1083,TASK-17044
+WO-10363,Barbara Wright,TECH-225,Pressure switch,76.45,2.25,Completed,Switch replaced,EQP-1036,TASK-77888
+WO-10364,Matthew Scott,TECH-177,Test kit,112.80,3.0,Completed,Annual testing complete,EQP-1090,TASK-99678
+WO-10365,Dorothy Green,TECH-203,Seal retainer,38.70,1.0,Completed,Retainer replaced,EQP-1080,TASK-45943
+WO-10366,Donald Baker,TECH-228,Valve seat,67.35,1.75,On Hold,Waiting for approval,EQP-1075,TASK-45225
+WO-10367,George Adams,TECH-195,Coupling,93.20,2.5,Completed,Alignment corrected,EQP-1023,TASK-43237
+WO-10368,Karen Nelson,TECH-220,Lube filter,29.95,1.0,Completed,Filter cleaned,EQP-1049,TASK-55779
+WO-10369,Mark Carter,TECH-186,Filter element,54.80,1.5,Completed,Element replaced,EQP-1001,TASK-75825
+WO-10370,Betty Mitchell,TECH-211,Gearbox oil,32.40,1.25,Completed,Oil changed,EQP-1013,TASK-47168
+WO-10371,Steven Perez,TECH-233,Control board,215.60,3.5,Completed,Board reprogrammed,EQP-1083,TASK-17044
+WO-10372,Donna Roberts,TECH-182,Transmitter,143.75,2.75,Completed,Calibrated,EQP-1036,TASK-77888
+WO-10373,Edward Turner,TECH-209,Test gauge,87.90,2.0,Completed,Testing complete,EQP-1090,TASK-99678
+WO-10374,Rebecca Phillips,TECH-194,Seal ring,19.95,0.75,Completed,Ring replaced,EQP-1080,TASK-45943
+WO-10375,Brian Campbell,TECH-229,Valve spring,45.60,1.25,Completed,Spring tension adjusted,EQP-1075,TASK-45225
+WO-10376,Ronald Parker,TECH-198,Shaft seal,78.30,2.0,Completed,Seal replaced,EQP-1023,TASK-43237
+WO-10377,Sharon Evans,TECH-223,Lube nozzle,15.20,0.5,Completed,Nozzle cleaned,EQP-1049,TASK-55779
+WO-10378,Kenneth Edwards,TECH-181,Filter gasket,12.80,0.75,Completed,Gasket replaced,EQP-1001,TASK-75825
+WO-10379,Michelle Collins,TECH-216,Bearing housing,124.70,2.75,Completed,Housing inspected,EQP-1013,TASK-47168
+WO-10380,Paul Stewart,TECH-235,Actuator arm,98.45,2.25,Completed,Arm adjusted,EQP-1083,TASK-17044
+WO-10381,Laura Sanchez,TECH-187,Level sensor,76.30,2.0,Completed,Sensor replaced,EQP-1036,TASK-77888
+WO-10382,Gary Morris,TECH-212,Calibration tool,65.90,1.75,Completed,Tool used for testing,EQP-1090,TASK-99678
+WO-10383,Amanda Rogers,TECH-199,Seal washer,8.95,0.5,Completed,Washer replaced,EQP-1080,TASK-45943
+WO-10384,Joshua Reed,TECH-234,Valve handle,32.40,1.0,Completed,Handle tightened,EQP-1075,TASK-45225
+WO-10385,Kimberly Cook,TECH-185,Coupling guard,56.80,1.5,Completed,Guard installed,EQP-1023,TASK-43237
+WO-10386,Kevin Morgan,TECH-222,Lube line,43.70,1.25,Completed,Line flushed,EQP-1049,TASK-55779
+WO-10387,Angela Bell,TECH-190,Filter clamp,18.30,0.75,Completed,Clamp replaced,EQP-1001,TASK-75825
+WO-10388,Timothy Murphy,TECH-217,Drive chain,67.90,2.0,Completed,Chain lubricated,EQP-1013,TASK-47168
+WO-10389,Pamela Bailey,TECH-236,Control cable,89.50,2.5,Completed,Cable replaced,EQP-1083,TASK-17044
+WO-10390,Frank Rivera,TECH-188,Pressure valve,112.40,3.0,Completed,Valve tested,EQP-1036,TASK-77888
+WO-10391,Heather Cooper,TECH-213,Test seal,24.60,1.0,Completed,Seal checked,EQP-1090,TASK-99678
+WO-10392,Jeremy Richardson,TECH-200,Seal guide,37.80,1.25,Completed,Guide adjusted,EQP-1080,TASK-45943
+WO-10393,Debra Cox,TECH-237,Valve cover,53.20,1.5,Completed,Cover replaced,EQP-1075,TASK-45225
+WO-10394,Raymond Howard,TECH-189,Alignment tool,78.90,2.25,Completed,Alignment verified,EQP-1023,TASK-43237
+WO-10395,Janet Ward,TECH-224,Lube reservoir,92.40,2.75,Completed,Reservoir cleaned,EQP-1049,TASK-55779
+WO-10396,Jacob Torres,TECH-201,Filter bracket,28.70,1.0,Completed,Bracket tightened,EQP-1001,TASK-75825
+WO-10397,Dennis Peterson,TECH-238,Drive gear,115.80,3.0,Completed,Gear inspected,EQP-1013,TASK-47168
+WO-10398,Carol Gray,TECH-191,Control panel,167.30,3.5,Completed,Panel updated,EQP-1083,TASK-17044
+WO-10399,Adam Ramirez,TECH-225,Flow meter,134.60,3.25,Completed,Meter calibrated,EQP-1036,TASK-77888
+WO-10400,Brenda James,TECH-202,Test adapter,47.90,1.75,Completed,Adapter used,EQP-1090,TASK-99678
+WO-10401,Patrick Watson,TECH-239,Seal retainer clip,9.95,0.5,Completed,Clip replaced,EQP-1080,TASK-45943
+WO-10402,Ashley Brooks,TECH-192,Valve stem seal,22.40,1.0,Completed,Seal replaced,EQP-1075,TASK-45225
+WO-10403,Gregory Kelly,TECH-240,Shaft coupling,87.50,2.5,Completed,Coupling aligned,EQP-1023,TASK-43237
+WO-10404,Anna Sanders,TECH-226,Lube filter,34.90,1.25,Completed,Filter replaced,EQP-1049,TASK-55779
+WO-10405,Tyler Price,TECH-203,Filter housing gasket,16.80,0.75,Completed,Gasket installed,EQP-1001,TASK-75825
+WO-10406,Ruth Bennett,TECH-241,Drive pulley,72.60,2.0,Completed,Pulley adjusted,EQP-1013,TASK-47168
+WO-10407,Scott Wood,TECH-193,Control valve,105.40,2.75,Completed,Valve serviced,EQP-1083,TASK-17044
+WO-10408,Virginia Barnes,TECH-242,Pressure gauge,59.80,1.75,Completed,Gauge replaced,EQP-1036,TASK-77888
+WO-10409,Bryan Ross,TECH-227,Test fitting,32.50,1.25,Completed,Fitting used,EQP-1090,TASK-99678
+WO-10410,Cynthia Henderson,TECH-204,Seal spacer,14.20,0.75,Completed,Spacer installed,EQP-1080,TASK-45943
+WO-10411,Peter Coleman,TECH-243,Valve lock,28.90,1.0,Completed,Lock replaced,EQP-1075,TASK-45225
+WO-10412,Shirley Jenkins,TECH-244,Bearing retainer,64.30,1.75,Completed,Retainer tightened,EQP-1023,TASK-43237
+WO-10413,Harold Perry,TECH-195,Lube pump,98.70,2.5,Completed,Pump serviced,EQP-1049,TASK-55779
+WO-10414,Rachel Powell,TECH-245,Filter screen,21.40,1.0,Completed,Screen cleaned,EQP-1001,TASK-75825
+WO-10415,Eugene Long,TECH-206,Drive shaft,132.80,3.25,Completed,Shaft inspected,EQP-1013,TASK-47168
+WO-10416,Andrea Hughes,TECH-246,Control module,156.90,3.5,Completed,Module updated,EQP-1083,TASK-17044
+WO-10417,Keith Flores,TECH-196,Pressure switch,67.40,2.0,Completed,Switch tested,EQP-1036,TASK-77888
+WO-10418,Alice Washington,TECH-247,Test valve,45.60,1.5,Completed,Valve used,EQP-1090,TASK-99678
+WO-10419,Wayne Butler,TECH-207,Seal housing,38.90,1.25,Completed,Housing inspected,EQP-1080,TASK-45943
+WO-10420,Marie Simmons,TECH-248,Valve guide,52.70,1.75,Completed,Guide replaced,EQP-1075,TASK-45225
+WO-10421,Alan Foster,TECH-197,Coupling bolt,12.90,0.5,Completed,Bolts replaced,EQP-1023,TASK-43237
+WO-10422,Katherine Gonzales,TECH-249,Lube line filter,26.80,1.0,Completed,Filter changed,EQP-1049,TASK-55779
+WO-10423,Russell Bryant,TECH-208,Filter housing bolt,8.95,0.5,Completed,Bolts tightened,EQP-1001,TASK-75825
+WO-10424,Lori Alexander,TECH-250,Drive belt guard,34.60,1.25,Completed,Guard installed,EQP-1013,TASK-47168
+WO-10425,Bruce Russell,TECH-198,Control switch,78.30,2.0,Completed,Switch replaced,EQP-1083,TASK-17044
+WO-10426,Helen Griffin,TECH-251,Pressure sensor,92.50,2.5,Completed,Sensor calibrated,EQP-1036,TASK-77888
+WO-10427,Howard Diaz,TECH-209,Test port,18.40,0.75,Completed,Port used,EQP-1090,TASK-99678
+WO-10428,Jean Hayes,TECH-252,Seal spring,15.80,0.75,Completed,Spring replaced,EQP-1080,TASK-45943
+WO-10429,Roy Myers,TECH-210,Valve packing,24.30,1.0,Completed,Packing replaced,EQP-1075,TASK-45225
+WO-10430,Evelyn Ford,TECH-253,Shaft bearing,87.60,2.25,Completed,Bearing greased,EQP-1023,TASK-43237
+WO-10431,Aaron Hamilton,TECH-211,Lube fitting,9.95,0.5,Completed,Fitting cleaned,EQP-1049,TASK-55779
+WO-10432,Judith Graham,TECH-254,Filter clamp bolt,6.80,0.25,Completed,Bolts tightened,EQP-1001,TASK-75825
+WO-10433,Philip Spencer,TECH-212,Drive chain tensioner,42.70,1.25,Completed,Tensioner adjusted,EQP-1013,TASK-47168
+WO-10434,Mildred Arnold,TECH-255,Control relay,65.40,1.75,Completed,Relay replaced,EQP-1083,TASK-17044
+WO-10435,Arthur Pierce,TECH-213,Pressure regulator,78.90,2.25,Completed,Regulator serviced,EQP-1036,TASK-77888
+WO-10436,Frances Tucker,TECH-256,Test coupling,32.50,1.25,Completed,Coupling used,EQP-1090,TASK-99678
+WO-10437,Lawrence Hunter,TECH-214,Seal retainer ring,19.40,0.75,Completed,Ring replaced,EQP-1080,TASK-45943
+WO-10438,Ann Owens,TECH-257,Valve stem guide,28.70,1.0,Completed,Guide inspected,EQP-1075,TASK-45225
+WO-10439,Joe Rice,TECH-215,Coupling spacer,15.90,0.75,Completed,Spacer installed,EQP-1023,TASK-43237
+WO-10440,Diana West,TECH-258,Lube filter housing,54.80,1.75,Completed,Housing cleaned,EQP-1049,TASK-55779
+WO-10441,Jack Bennett,TECH-216,Filter element seal,12.40,0.5,Completed,Seal replaced,EQP-1001,TASK-75825
+WO-10442,Julia Crawford,TECH-259,Drive pulley bolt,8.95,0.5,Completed,Bolts tightened,EQP-1013,TASK-47168
+WO-10443,Willie Grant,TECH-217,Control board fuse,5.60,0.25,Completed,Fuse replaced,EQP-1083,TASK-17044
+WO-10444,Ralph Porter,TECH-260,Pressure gauge seal,7.80,0.5,Completed,Seal replaced,EQP-1036,TASK-77888
+WO-10445,Phyllis Shaw,TECH-218,Test adapter gasket,9.95,0.5,Completed,Gasket replaced,EQP-1090,TASK-99678
+WO-10446,Benjamin Hawkins,TECH-261,Seal housing bolt,6.80,0.25,Completed,Bolts tightened,EQP-1080,TASK-45943
+WO-10447,Lois Fuller,TECH-219,Valve lock nut,4.95,0.25,Completed,Nut tightened,EQP-1075,TASK-45225
+WO-10448,Johnny Johnston,TECH-262,Bearing lock,12.40,0.5,Completed,Lock installed,EQP-1023,TASK-43237
+WO-10449,Ruby Lane,TECH-220,Lube pump gasket,8.95,0.5,Completed,Gasket replaced,EQP-1049,TASK-55779
+WO-10450,Clarence Andrews,TECH-263,Filter screen clip,5.60,0.25,Completed,Clip replaced,EQP-1001,TASK-75825
+WO-10451,Thelma Ruiz,TECH-221,Drive shaft coupling,76.90,2.25,Completed,Coupling aligned,EQP-1013,TASK-47168
+WO-10452,Sam Wheeler,TECH-264,Control module cable,45.80,1.5,Completed,Cable replaced,EQP-1083,TASK-17044
+WO-10453,Gladys Williamson,TECH-222,Pressure switch wire,12.40,0.75,Completed,Wire repaired,EQP-1036,TASK-77888
+WO-10454,Leonard Henry,TECH-265,Test valve handle,8.95,0.5,Completed,Handle replaced,EQP-1090,TASK-99678
+WO-10455,Florence Montgomery,TECH-223,Seal housing gasket,9.95,0.5,Completed,Gasket replaced,EQP-1080,TASK-45943
+WO-10456,Alfred Robertson,TECH-266,Valve guide pin,7.80,0.5,Completed,Pin replaced,EQP-1075,TASK-45225
+WO-10457,Marion Gibson,TECH-224,Coupling key,6.80,0.25,Completed,Key replaced,EQP-1023,TASK-43237
+WO-10458,Stanley Jordan,TECH-267,Lube line fitting,9.95,0.5,Completed,Fitting tightened,EQP-1049,TASK-55779
+WO-10459,Edna Reynolds,TECH-225,Filter housing washer,4.95,0.25,Completed,Washer replaced,EQP-1001,TASK-75825
+WO-10460,Clifford Hamilton,TECH-268,Drive belt,32.40,1.25,Completed,Belt replaced,EQP-1013,TASK-47168
+WO-10461,Pauline Graham,TECH-226,Control switch button,8.95,0.5,Completed,Button replaced,EQP-1083,TASK-17044
+WO-10462,Warren Kim,TECH-269,Pressure sensor wire,12.40,0.75,Completed,Wire repaired,EQP-1036,TASK-77888
+WO-10463,Wilma Castillo,TECH-227,Test port plug,5.60,0.25,Completed,Plug replaced,EQP-1090,TASK-99678
+WO-10464,Dean Woods,TECH-270,Seal spring retainer,7.80,0.5,Completed,Retainer replaced,EQP-1080,TASK-45943
+WO-10465,Elsie Cole,TECH-228,Valve packing nut,4.95,0.25,Completed,Nut tightened,EQP-1075,TASK-45225
+WO-10466,Tommy West,TECH-271,Shaft bearing cap,9.95,0.5,Completed,Cap replaced,EQP-1023,TASK-43237
+WO-10467,Carrie Diaz,TECH-229,Lube fitting washer,3.95,0.25,Completed,Washer replaced,EQP-1049,TASK-55779
+WO-10468,Marvin Gibson,TECH-272,Filter clamp,12.40,0.75,Completed,Clamp replaced,EQP-1001,TASK-75825
+WO-10469,Beatrice Morrison,TECH-230,Drive chain link,8.95,0.5,Completed,Link replaced,EQP-1013,TASK-47168
+WO-10470,Victor Murray,TECH-273,Control relay cover,6.80,0.25,Completed,Cover replaced,EQP-1083,TASK-17044
+WO-10471,Clara Peterson,TECH-231,Pressure regulator spring,9.95,0.5,Completed,Spring replaced,EQP-1036,TASK-77888
+WO-10472,Edwin Kim,TECH-274,Test coupling gasket,4.95,0.25,Completed,Gasket replaced,EQP-1090,TASK-99678
+WO-10473,Hilda Cruz,TECH-232,Seal retainer clip,3.95,0.25,Completed,Clip replaced,EQP-1080,TASK-45943
+WO-10474,Glenn Ortiz,TECH-275,Valve stem guide pin,5.60,0.25,Completed,Pin replaced,EQP-1075,TASK-45225
+WO-10475,Lillie Flores,TECH-233,Coupling spacer bolt,4.95,0.25,Completed,Bolt tightened,EQP-1023,TASK-43237
+WO-10476,Benjamin Stephens,TECH-276,Lube filter cap,7.80,0.5,Completed,Cap replaced,EQP-1049,TASK-55779
+WO-10477,Marian Simmons,TECH-234,Filter element gasket,5.60,0.25,Completed,Gasket replaced,EQP-1001,TASK-75825
+WO-10478,Alexander Gardner,TECH-277,Drive pulley key,6.80,0.25,Completed,Key replaced,EQP-1013,TASK-47168
+WO-10479,Stella Bryant,TECH-235,Control board connector,8.95,0.5,Completed,Connector replaced,EQP-1083,TASK-17044
+WO-10480,Claude Greene,TECH-278,Pressure gauge lens,9.95,0.5,Completed,Lens replaced,EQP-1036,TASK-77888
+WO-10481,Lucy Maldonado,TECH-236,Test adapter seal,4.95,0.25,Completed,Seal replaced,EQP-1090,TASK-99678
+WO-10482,Martin Nguyen,TECH-279,Seal housing washer,3.95,0.25,Completed,Washer replaced,EQP-1080,TASK-45943
+WO-10483,Agnes Herrera,TECH-237,Valve lock washer,2.95,0.25,Completed,Washer replaced,EQP-1075,TASK-45225
+WO-10484,Jerome Welch,TECH-280,Bearing lock nut,5.60,0.25,Completed,Nut tightened,EQP-1023,TASK-43237
+WO-10485,Flora Hoffman,TECH-238,Lube pump seal,7.80,0.5,Completed,Seal replaced,EQP-1049,TASK-55779
+WO-10486,Max Carlson,TECH-281,Filter screen frame,9.95,0.5,Completed,Frame replaced,EQP-1001,TASK-75825
+WO-10487,Lula Francis,TECH-239,Drive shaft key,6.80,0.25,Completed,Key replaced,EQP-1013,TASK-47168
+WO-10488,Clifton Vaughn,TECH-282,Control module chip,45.60,1.5,Completed,Chip replaced,EQP-1083,TASK-17044
+WO-10489,Myrtle Beck,TECH-240,Pressure switch terminal,8.95,0.5,Completed,Terminal replaced,EQP-1036,TASK-77888
+WO-10490,Dwayne Walters,TECH-283,Test valve seal,5.60,0.25,Completed,Seal replaced,EQP-1090,TASK-99678
+WO-10491,Christine Harper,TECH-241,Seal housing bolt,4.95,0.25,Completed,Bolt tightened,EQP-1080,TASK-45943
+WO-10492,Wallace Lynch,TECH-284,Valve guide clip,3.95,0.25,Completed,Clip replaced,EQP-1075,TASK-45225
+WO-10493,Naomi Blake,TECH-242,Coupling set screw,2.95,0.25,Completed,Screw tightened,EQP-1023,TASK-43237
+WO-10494,Claudia Daniel,TECH-285,Lube line clamp,5.60,0.25,Completed,Clamp replaced,EQP-1049,TASK-55779
+WO-10495,Perry Carroll,TECH-243,Filter housing nut,4.95,0.25,Completed,Nut tightened,EQP-1001,TASK-75825
+WO-10496,Rosie Thornton,TECH-286,Drive belt tensioner,32.40,1.25,Completed,Tensioner adjusted,EQP-1013,TASK-47168
+WO-10497,Alvin McKinney,TECH-244,Control switch cover,7.80,0.5,Completed,Cover replaced,EQP-1083,TASK-17044
+WO-10498,Erma Lowe,TECH-287,Pressure sensor gasket,5.60,0.25,Completed,Gasket replaced,EQP-1036,TASK-77888
+WO-10499,Leon Abbott,TECH-245,Test port adapter,8.95,0.5,Completed,Adapter installed,EQP-1090,TASK-99678
+WO-10500,Eula Valdez,TECH-288,Seal spring washer,3.95,0.25,Completed,Washer replaced,EQP-1080,TASK-45943

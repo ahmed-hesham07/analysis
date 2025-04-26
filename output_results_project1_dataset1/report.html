@@ -1,0 +1,150 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Maintenance Analysis Report</title>
+            
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 20px;
+                background-color: #f9f9f9;
+                color: #333;
+            }
+            h1, h2, h3 {
+                color: #2c3e50;
+            }
+            h1 {
+                text-align: center;
+                margin-bottom: 30px;
+                font-size: 28px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 10px;
+            }
+            table th, table td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            table th {
+                background-color: #f2f2f2;
+            }
+            ul {
+                list-style-type: disc;
+                margin-left: 20px;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+                margin-top: 20px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                background: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+                font-size: 14px;
+                color: #777;
+            }
+        </style>
+        
+        </head>
+        <body>
+            <div class="container">
+                <h1>Maintenance Analysis Report</h1>
+
+                <h2>Data Overview</h2>
+                
+        <h3>Dataset Overview</h3>
+        <ul>
+            <li><strong>Rows:</strong> 500</li>
+            <li><strong>Columns:</strong> 9</li>
+        </ul>
+
+        <h3>Columns</h3>
+        <ul>
+            <li>Equipment Name</li><li>Equipment ID</li><li>Criticality level</li><li>Task Id</li><li>Task Description</li><li>Start date</li><li>End Date</li><li>Duration</li><li>Maintenance cost</li>
+        </ul>
+
+        <h3>Numerical Statistics</h3>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Column</th>
+                    <th>Mean</th>
+                    <th>Min</th>
+                    <th>Max</th>
+                    <th>Std</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Duration</td><td>5.39</td><td>1.0</td><td>10.0</td><td>2.89</td></tr><tr><td>Maintenance cost</td><td>5230.26</td><td>530.78</td><td>9990.13</td><td>2723.79</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Categorical Statistics</h3>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Column</th>
+                    <th>Top Categories</th>
+                    <th>Counts</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Equipment Name</td><td>Drill Bit, Separator, Blowout Preventer, Gas Lift Valve, Choke Valve</td><td>43, 39, 39, 37, 37</td></tr><tr><td>Equipment ID</td><td>EQP-1062, EQP-1054, EQP-1012, EQP-1000, EQP-1057</td><td>10, 10, 9, 8, 8</td></tr><tr><td>Criticality level</td><td>Low, Medium, High</td><td>175, 173, 152</td></tr><tr><td>Task Id</td><td>TASK-35965, TASK-77888, TASK-99678, TASK-45943, TASK-32911</td><td>1, 1, 1, 1, 1</td></tr><tr><td>Task Description</td><td>Valve check, Lubrication, Filter change, Routine inspection, Seal replacement</td><td>61, 55, 53, 51, 50</td></tr><tr><td>Start date</td><td>2024-05-13 00:00:00, 2025-02-10 00:00:00, 2024-08-04 00:00:00, 2024-06-23 00:00:00, 2024-08-26 00:00:00</td><td>4, 3, 3, 3, 3</td></tr><tr><td>End Date</td><td>2025-02-17 00:00:00, 2023-10-30 00:00:00, 2024-08-29 00:00:00, 2024-06-29 00:00:00, 2023-08-18 00:00:00</td><td>4, 4, 4, 3, 3</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Missing Values</h3>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Column</th>
+                    <th>Missing Values</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Equipment Name</td><td>0</td></tr><tr><td>Equipment ID</td><td>0</td></tr><tr><td>Criticality level</td><td>0</td></tr><tr><td>Task Id</td><td>0</td></tr><tr><td>Task Description</td><td>0</td></tr><tr><td>Start date</td><td>0</td></tr><tr><td>End Date</td><td>0</td></tr><tr><td>Duration</td><td>0</td></tr><tr><td>Maintenance cost</td><td>0</td></tr>
+            </tbody>
+        </table>
+        
+
+                <h2>Insights</h2>
+                <ul><li>The following table shows the total number of jobs that were completed in the last year.</li></ul>
+
+                <h2>Recommendations</h2>
+                <ul><li>Predicted Maintenance cost with R2 score: -0.00</li><li>Clustered equipment for optimized scheduling.</li></ul>
+
+                <h2>Visualizations</h2>
+                
+                    <img src='numerical_distributions.png' alt='Numerical Distributions'>
+                
+                
+                    <img src='categorical_counts.png' alt='Categorical Counts'>
+                
+                
+                    <img src='time_series.png' alt='Time Series Trends'>
+                
+            </div>
+            <div class="footer">
+                Generated by Maintenance Analyzer | 2025-04-26 18:12:32
+            </div>
+        </body>
+        </html>
+        
